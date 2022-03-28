@@ -31,24 +31,25 @@ namespace Car.Views
         {
             this.components = new System.ComponentModel.Container();
             this.dgvCars = new System.Windows.Forms.DataGridView();
-            this.carDatabaseDataSet = new Car.CarDatabaseDataSet();
-            this.carTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carTableTableAdapter = new Car.CarDatabaseDataSetTableAdapters.CarTableTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productionYearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
             this.lblModel = new System.Windows.Forms.Label();
             this.lblProductionYear = new System.Windows.Forms.Label();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.carDatabaseDataSet1 = new Car.CarDatabaseDataSet();
             this.ProductionYearPick = new System.Windows.Forms.DateTimePicker();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productionYearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carDatabaseDataSet = new Car.CarDatabaseDataSet();
+            this.carTableTableAdapter = new Car.CarDatabaseDataSetTableAdapters.CarTableTableAdapter();
+            this.carDatabaseDataSet1 = new Car.CarDatabaseDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,44 +67,6 @@ namespace Car.Views
             this.dgvCars.Name = "dgvCars";
             this.dgvCars.Size = new System.Drawing.Size(444, 214);
             this.dgvCars.TabIndex = 0;
-            // 
-            // carDatabaseDataSet
-            // 
-            this.carDatabaseDataSet.DataSetName = "CarDatabaseDataSet";
-            this.carDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carTableBindingSource
-            // 
-            this.carTableBindingSource.DataMember = "CarTable";
-            this.carTableBindingSource.DataSource = this.carDatabaseDataSet;
-            // 
-            // carTableTableAdapter
-            // 
-            this.carTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            // 
-            // productionYearDataGridViewTextBoxColumn
-            // 
-            this.productionYearDataGridViewTextBoxColumn.DataPropertyName = "ProductionYear";
-            this.productionYearDataGridViewTextBoxColumn.HeaderText = "ProductionYear";
-            this.productionYearDataGridViewTextBoxColumn.Name = "productionYearDataGridViewTextBoxColumn";
             // 
             // lblBrand
             // 
@@ -162,17 +125,66 @@ namespace Car.Views
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // carDatabaseDataSet1
-            // 
-            this.carDatabaseDataSet1.DataSetName = "CarDatabaseDataSet";
-            this.carDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // ProductionYearPick
             // 
             this.ProductionYearPick.Location = new System.Drawing.Point(588, 164);
             this.ProductionYearPick.Name = "ProductionYearPick";
             this.ProductionYearPick.Size = new System.Drawing.Size(200, 20);
             this.ProductionYearPick.TabIndex = 8;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(482, 287);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(93, 35);
+            this.btnUpdate.TabIndex = 9;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // brandDataGridViewTextBoxColumn
+            // 
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            // 
+            // productionYearDataGridViewTextBoxColumn
+            // 
+            this.productionYearDataGridViewTextBoxColumn.DataPropertyName = "ProductionYear";
+            this.productionYearDataGridViewTextBoxColumn.HeaderText = "ProductionYear";
+            this.productionYearDataGridViewTextBoxColumn.Name = "productionYearDataGridViewTextBoxColumn";
+            // 
+            // carTableBindingSource
+            // 
+            this.carTableBindingSource.DataMember = "CarTable";
+            this.carTableBindingSource.DataSource = this.carDatabaseDataSet;
+            // 
+            // carDatabaseDataSet
+            // 
+            this.carDatabaseDataSet.DataSetName = "CarDatabaseDataSet";
+            this.carDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carTableTableAdapter
+            // 
+            this.carTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // carDatabaseDataSet1
+            // 
+            this.carDatabaseDataSet1.DataSetName = "CarDatabaseDataSet";
+            this.carDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // CarView
             // 
@@ -181,6 +193,7 @@ namespace Car.Views
             this.BackgroundImage = global::Car.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.ProductionYearPick);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtModel);
@@ -193,8 +206,8 @@ namespace Car.Views
             this.Text = "CarView";
             this.Load += new System.EventHandler(this.CarView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,5 +232,6 @@ namespace Car.Views
         private System.Windows.Forms.Button btnCreate;
         private CarDatabaseDataSet carDatabaseDataSet1;
         private System.Windows.Forms.DateTimePicker ProductionYearPick;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

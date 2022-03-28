@@ -31,5 +31,21 @@ namespace Car.Controllers
                 ex.SaveChanges();
             }
         }
+        internal void UpdateCar(int id,CarTable c)
+        {
+            using (CarDatabaseEntities ex = new CarDatabaseEntities())
+            {
+                var carToUpdate = ex.CarTables.Where(carTable => c.Id == id).FirstOrDefault();
+                if (carToUpdate != null)
+                {
+                   
+                    carToUpdate.Brand = c.Brand;
+                    carToUpdate.Model = c.Model;
+                    carToUpdate.ProductionYear = c.ProductionYear;
+                    ex.SaveChanges();
+                    
+                }
+            }
+        }
     }
 }

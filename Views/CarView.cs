@@ -40,5 +40,18 @@ namespace Car.Views
             carController.CreateCar(carTable);
             RefreshTable();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvCars.CurrentRow;
+            int id = int.Parse(row.Cells["Id"].Value.ToString());
+            CarTable c = new CarTable();
+            c.Id = id;
+            c.Brand = txtBrand.Text;
+            c.Model = txtModel.Text;
+            c.ProductionYear = ProductionYearPick.Value;
+            carController.UpdateCar(id, c);
+            RefreshTable();
+        }
     }
 }
