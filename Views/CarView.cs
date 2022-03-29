@@ -40,5 +40,13 @@ namespace Car.Views
             carController.CreateCar(carTable);
             RefreshTable();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvCars.CurrentRow;
+            int id = int.Parse(row.Cells[0].Value.ToString());
+            carController.DeleteCar(id);
+            RefreshTable();
+        }
     }
 }
