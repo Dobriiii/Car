@@ -38,12 +38,10 @@ namespace Car.Controllers
                 var carToUpdate = ex.CarTables.Where(carTable => c.Id == id).FirstOrDefault();
                 if (carToUpdate != null)
                 {
-                   
                     carToUpdate.Brand = c.Brand;
                     carToUpdate.Model = c.Model;
                     carToUpdate.ProductionYear = c.ProductionYear;
                     ex.SaveChanges();
-                    
                 }
             }
         }

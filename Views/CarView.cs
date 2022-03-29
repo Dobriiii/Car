@@ -23,9 +23,7 @@ namespace Car.Views
 
         private void CarView_Load(object sender, EventArgs e)
         {
-
             dgvCars.DataSource = carController.GetCars();
-
         }
         private void RefreshTable()
         {
@@ -44,7 +42,7 @@ namespace Car.Views
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvCars.CurrentRow;
-            int id = int.Parse(row.Cells["Id"].Value.ToString());
+            int id = int.Parse(row.Cells[0].Value.ToString());
             CarTable c = new CarTable();
             c.Id = id;
             c.Brand = txtBrand.Text;
