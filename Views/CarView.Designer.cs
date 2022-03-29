@@ -31,13 +31,13 @@ namespace Car.Views
         {
             this.components = new System.ComponentModel.Container();
             this.dgvCars = new System.Windows.Forms.DataGridView();
-            this.carDatabaseDataSet = new Car.CarDatabaseDataSet();
-            this.carTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carTableTableAdapter = new Car.CarDatabaseDataSetTableAdapters.CarTableTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productionYearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carDatabaseDataSet = new Car.CarDatabaseDataSet();
+            this.carTableTableAdapter = new Car.CarDatabaseDataSetTableAdapters.CarTableTableAdapter();
             this.lblBrand = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
             this.lblModel = new System.Windows.Forms.Label();
@@ -46,9 +46,10 @@ namespace Car.Views
             this.btnCreate = new System.Windows.Forms.Button();
             this.carDatabaseDataSet1 = new Car.CarDatabaseDataSet();
             this.ProductionYearPick = new System.Windows.Forms.DateTimePicker();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,20 +67,6 @@ namespace Car.Views
             this.dgvCars.Name = "dgvCars";
             this.dgvCars.Size = new System.Drawing.Size(444, 214);
             this.dgvCars.TabIndex = 0;
-            // 
-            // carDatabaseDataSet
-            // 
-            this.carDatabaseDataSet.DataSetName = "CarDatabaseDataSet";
-            this.carDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // carTableBindingSource
-            // 
-            this.carTableBindingSource.DataMember = "CarTable";
-            this.carTableBindingSource.DataSource = this.carDatabaseDataSet;
-            // 
-            // carTableTableAdapter
-            // 
-            this.carTableTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -104,6 +91,20 @@ namespace Car.Views
             this.productionYearDataGridViewTextBoxColumn.DataPropertyName = "ProductionYear";
             this.productionYearDataGridViewTextBoxColumn.HeaderText = "ProductionYear";
             this.productionYearDataGridViewTextBoxColumn.Name = "productionYearDataGridViewTextBoxColumn";
+            // 
+            // carTableBindingSource
+            // 
+            this.carTableBindingSource.DataMember = "CarTable";
+            this.carTableBindingSource.DataSource = this.carDatabaseDataSet;
+            // 
+            // carDatabaseDataSet
+            // 
+            this.carDatabaseDataSet.DataSetName = "CarDatabaseDataSet";
+            this.carDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carTableTableAdapter
+            // 
+            this.carTableTableAdapter.ClearBeforeFill = true;
             // 
             // lblBrand
             // 
@@ -154,7 +155,7 @@ namespace Car.Views
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(482, 246);
+            this.btnCreate.Location = new System.Drawing.Point(475, 208);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(93, 35);
             this.btnCreate.TabIndex = 7;
@@ -174,6 +175,17 @@ namespace Car.Views
             this.ProductionYearPick.Size = new System.Drawing.Size(200, 20);
             this.ProductionYearPick.TabIndex = 8;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(475, 249);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(93, 35);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // CarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +193,7 @@ namespace Car.Views
             this.BackgroundImage = global::Car.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.ProductionYearPick);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txtModel);
@@ -193,8 +206,8 @@ namespace Car.Views
             this.Text = "CarView";
             this.Load += new System.EventHandler(this.CarView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carDatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,5 +232,6 @@ namespace Car.Views
         private System.Windows.Forms.Button btnCreate;
         private CarDatabaseDataSet carDatabaseDataSet1;
         private System.Windows.Forms.DateTimePicker ProductionYearPick;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

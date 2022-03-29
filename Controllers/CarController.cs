@@ -31,5 +31,18 @@ namespace Car.Controllers
                 ex.SaveChanges();
             }
         }
+
+        public void DeleteCar(int id)
+        {
+            using (CarDatabaseEntities ex = new CarDatabaseEntities())
+            {
+                var carToDelete = ex.CarTables.Where(prop => prop.Id == id).FirstOrDefault();
+                if (carToDelete != null)
+                {
+                    ex.CarTables.Remove(carToDelete);
+                    ex.SaveChanges();
+                }
+            }
+        }
     }
 }
